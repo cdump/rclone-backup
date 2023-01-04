@@ -15,8 +15,9 @@ BACKUP_REMOTES=mailruEncrypted backblazeEncrypted
 
 # sync command
 SYNC_CMD=rclone sync --progress
-# SYNC_CMD+= --dry-run
-# SYNC_CMD+= --interactive
+SYNC_CMD+=--modify-window 2s # mailru has 1s resolution
+# SYNC_CMD+=--dry-run
+# SYNC_CMD+=--interactive
 
 # default target: backup everything to all BACKUP_REMOTES
 backup-all: $(BACKUP_REMOTES)
